@@ -1,6 +1,15 @@
 // Package utils @author: Violet-Eva @date  : 2025/9/3 @notes :
 package utils
 
+func In[t comparable](a t, b ...t) bool {
+	for _, value := range b {
+		if a == value {
+			return true
+		}
+	}
+	return false
+}
+
 func Difference[t comparable](a []t, b ...t) []t {
 	bMap := make(map[t]bool)
 	for _, v := range b {
