@@ -1,7 +1,7 @@
 // Package utils @author: Violet-Eva @date  : 2025/9/19 @notes :
 package utils
 
-func List[T any](input []T, length int) [][]T {
+func ListSplit[T any](input []T, length int) [][]T {
 
 	times := len(input) / length    // 10001 / 2001 = 4
 	residual := len(input) % length // 10001 % 2001 = 1997
