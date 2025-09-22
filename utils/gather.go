@@ -1,13 +1,26 @@
 // Package utils @author: Violet-Eva @date  : 2025/9/3 @notes :
 package utils
 
-func In[t comparable](a t, b ...t) bool {
-	for _, value := range b {
-		if a == value {
+func Contains[t comparable](a []t, b t) bool {
+	for _, value := range a {
+		if b == value {
 			return true
 		}
 	}
 	return false
+}
+
+func SliceToSet[T comparable](s []T) map[T]struct{} {
+	set := make(map[T]struct{}, len(s))
+	for _, item := range s {
+		set[item] = struct{}{}
+	}
+	return set
+}
+
+func SetContains[T comparable](set map[T]struct{}, v T) bool {
+	_, exists := set[v]
+	return exists
 }
 
 func Difference[t comparable](a []t, b ...t) []t {
